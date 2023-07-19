@@ -1,0 +1,505 @@
+$ terraform apply -auto-approve
+data.aws_ssm_parameter.anjlab_ami: Reading...
+data.aws_availability_zones.available: Reading...
+data.aws_ssm_parameter.anjlab_ami: Read complete after 1s [id=/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2]
+data.aws_availability_zones.available: Read complete after 1s [id=us-west-2]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_instance.anjlab_webvm1 will be created
+  + resource "aws_instance" "anjlab_webvm1" {
+      + ami                                  = "ami-0f3b366cff2e46862"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = (known after apply)
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_stop                     = (known after apply)
+      + disable_api_termination              = (known after apply)
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + host_resource_group_arn              = (known after apply)
+      + iam_instance_profile                 = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = (known after apply)
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t2.micro"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = (known after apply)
+      + monitoring                           = (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = true
+      + subnet_id                            = (known after apply)
+      + tags                                 = {
+          + "Name" = "AnjLab-WEB-VM1"
+        }
+      + tags_all                             = {
+          + "Name" = "AnjLab-WEB-VM1"
+        }
+      + tenancy                              = (known after apply)
+      + user_data                            = "e3f1eea8db6389f9fb8e59d1d59fb83a9cbb2358"
+      + user_data_base64                     = (known after apply)
+      + user_data_replace_on_change          = false
+      + vpc_security_group_ids               = (known after apply)
+    }
+
+  # aws_instance.anjlab_webvm2 will be created
+  + resource "aws_instance" "anjlab_webvm2" {
+      + ami                                  = "ami-0f3b366cff2e46862"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = (known after apply)
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_stop                     = (known after apply)
+      + disable_api_termination              = (known after apply)
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + host_resource_group_arn              = (known after apply)
+      + iam_instance_profile                 = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = (known after apply)
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t2.micro"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = (known after apply)
+      + monitoring                           = (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = true
+      + subnet_id                            = (known after apply)
+      + tags                                 = {
+          + "Name" = "AnjLab-WEB-VM2"
+        }
+      + tags_all                             = {
+          + "Name" = "AnjLab-WEB-VM2"
+        }
+      + tenancy                              = (known after apply)
+      + user_data                            = "610066dd40db17d15931b27fe975a10c33171892"
+      + user_data_base64                     = (known after apply)
+      + user_data_replace_on_change          = false
+      + vpc_security_group_ids               = (known after apply)
+    }
+
+  # aws_internet_gateway.anjlab_igw will be created
+  + resource "aws_internet_gateway" "anjlab_igw" {
+      + arn      = (known after apply)
+      + id       = (known after apply)
+      + owner_id = (known after apply)
+      + tags     = {
+          + "Name" = "AnjLab-IGW"
+        }
+      + tags_all = {
+          + "Name" = "AnjLab-IGW"
+        }
+      + vpc_id   = (known after apply)
+    }
+
+  # aws_lb.anjlab_web_alb will be created
+  + resource "aws_lb" "anjlab_web_alb" {
+      + arn                                         = (known after apply)
+      + arn_suffix                                  = (known after apply)
+      + desync_mitigation_mode                      = "defensive"
+      + dns_name                                    = (known after apply)
+      + drop_invalid_header_fields                  = false
+      + enable_deletion_protection                  = false
+      + enable_http2                                = true
+      + enable_tls_version_and_cipher_suite_headers = false
+      + enable_waf_fail_open                        = false
+      + enable_xff_client_port                      = false
+      + id                                          = (known after apply)
+      + idle_timeout                                = 60
+      + internal                                    = false
+      + ip_address_type                             = (known after apply)
+      + load_balancer_type                          = "application"
+      + name                                        = "anjlab-web-alb"
+      + preserve_host_header                        = false
+      + security_groups                             = (known after apply)
+      + subnets                                     = (known after apply)
+      + tags                                        = {
+          + "Name" = "AnjLab-WEB-ALB"
+        }
+      + tags_all                                    = {
+          + "Name" = "AnjLab-WEB-ALB"
+        }
+      + vpc_id                                      = (known after apply)
+      + xff_header_processing_mode                  = "append"
+      + zone_id                                     = (known after apply)
+    }
+
+  # aws_lb_listener.anjlab_lb_listner will be created
+  + resource "aws_lb_listener" "anjlab_lb_listner" {
+      + arn               = (known after apply)
+      + id                = (known after apply)
+      + load_balancer_arn = (known after apply)
+      + port              = 80
+      + protocol          = "HTTP"
+      + ssl_policy        = (known after apply)
+      + tags              = {
+          + "Name" = "AnjLab-WEB-ALB-TG"
+        }
+      + tags_all          = {
+          + "Name" = "AnjLab-WEB-ALB-TG"
+        }
+
+      + default_action {
+          + order            = (known after apply)
+          + target_group_arn = (known after apply)
+          + type             = "forward"
+        }
+    }
+
+  # aws_lb_target_group.anjlab_web_alb_tg will be created
+  + resource "aws_lb_target_group" "anjlab_web_alb_tg" {
+      + arn                                = (known after apply)
+      + arn_suffix                         = (known after apply)
+      + connection_termination             = false
+      + deregistration_delay               = "300"
+      + id                                 = (known after apply)
+      + ip_address_type                    = (known after apply)
+      + lambda_multi_value_headers_enabled = false
+      + load_balancing_algorithm_type      = (known after apply)
+      + load_balancing_cross_zone_enabled  = (known after apply)
+      + name                               = "anjlab-web-alb-tg"
+      + port                               = 80
+      + preserve_client_ip                 = (known after apply)
+      + protocol                           = "HTTP"
+      + protocol_version                   = (known after apply)
+      + proxy_protocol_v2                  = false
+      + slow_start                         = 0
+      + tags                               = {
+          + "Name" = "AnjLab-WEB-ALB-TG"
+        }
+      + tags_all                           = {
+          + "Name" = "AnjLab-WEB-ALB-TG"
+        }
+      + target_type                        = "instance"
+      + vpc_id                             = (known after apply)
+    }
+
+  # aws_lb_target_group_attachment.anjlab_web_tg_instance1 will be created
+  + resource "aws_lb_target_group_attachment" "anjlab_web_tg_instance1" {
+      + id               = (known after apply)
+      + port             = 80
+      + target_group_arn = (known after apply)
+      + target_id        = (known after apply)
+    }
+
+  # aws_lb_target_group_attachment.anjlab_web_tg_instance2 will be created
+  + resource "aws_lb_target_group_attachment" "anjlab_web_tg_instance2" {
+      + id               = (known after apply)
+      + port             = 80
+      + target_group_arn = (known after apply)
+      + target_id        = (known after apply)
+    }
+
+  # aws_route_table.anjlab_rtb will be created
+  + resource "aws_route_table" "anjlab_rtb" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = [
+          + {
+              + carrier_gateway_id         = ""
+              + cidr_block                 = "0.0.0.0/0"
+              + core_network_arn           = ""
+              + destination_prefix_list_id = ""
+              + egress_only_gateway_id     = ""
+              + gateway_id                 = (known after apply)
+              + instance_id                = ""
+              + ipv6_cidr_block            = ""
+              + local_gateway_id           = ""
+              + nat_gateway_id             = ""
+              + network_interface_id       = ""
+              + transit_gateway_id         = ""
+              + vpc_endpoint_id            = ""
+              + vpc_peering_connection_id  = ""
+            },
+        ]
+      + tags             = {
+          + "Name" = "AnjLab-RTB"
+        }
+      + tags_all         = {
+          + "Name" = "AnjLab-RTB"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # aws_route_table_association.anjlab_pubsubnet1 will be created
+  + resource "aws_route_table_association" "anjlab_pubsubnet1" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # aws_route_table_association.anjlab_pubsubnet2 will be created
+  + resource "aws_route_table_association" "anjlab_pubsubnet2" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # aws_security_group.anjlab_nginx_sg will be created
+  + resource "aws_security_group" "anjlab_nginx_sg" {
+      + arn                    = (known after apply)
+      + description            = "Managed by Terraform"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "10.0.0.0/16",
+                ]
+              + description      = ""
+              + from_port        = 80
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 80
+            },
+        ]
+      + name                   = "anjlab-nginx-sg"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "AnjLab-WEB-NGINXSG"
+        }
+      + tags_all               = {
+          + "Name" = "AnjLab-WEB-NGINXSG"
+        }
+      + vpc_id                 = (known after apply)
+    }
+
+  # aws_security_group.anjlab_webalb_sg will be created
+  + resource "aws_security_group" "anjlab_webalb_sg" {
+      + arn                    = (known after apply)
+      + description            = "Managed by Terraform"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 80
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 80
+            },
+        ]
+      + name                   = "anjlab-web-alb-sg"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "AnjLab-WEB-ALBSG"
+        }
+      + tags_all               = {
+          + "Name" = "AnjLab-WEB-ALBSG"
+        }
+      + vpc_id                 = (known after apply)
+    }
+
+  # aws_subnet.anjlab_pubsubnet1 will be created
+  + resource "aws_subnet" "anjlab_pubsubnet1" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-west-2a"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.0.0.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = true
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Name" = "AnjLab-PUB-SUBNET-1"
+        }
+      + tags_all                                       = {
+          + "Name" = "AnjLab-PUB-SUBNET-1"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # aws_subnet.anjlab_pubsubnet2 will be created
+  + resource "aws_subnet" "anjlab_pubsubnet2" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = "us-west-2b"
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.0.1.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = true
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Name" = "AnjLab-PUB-SUBNET-2"
+        }
+      + tags_all                                       = {
+          + "Name" = "AnjLab-PUB-SUBNET-2"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # aws_vpc.anjlab_vpc will be created
+  + resource "aws_vpc" "anjlab_vpc" {
+      + arn                                  = (known after apply)
+      + cidr_block                           = "10.0.0.0/16"
+      + default_network_acl_id               = (known after apply)
+      + default_route_table_id               = (known after apply)
+      + default_security_group_id            = (known after apply)
+      + dhcp_options_id                      = (known after apply)
+      + enable_classiclink                   = (known after apply)
+      + enable_classiclink_dns_support       = (known after apply)
+      + enable_dns_hostnames                 = (known after apply)
+      + enable_dns_support                   = true
+      + enable_network_address_usage_metrics = (known after apply)
+      + id                                   = (known after apply)
+      + instance_tenancy                     = "default"
+      + ipv6_association_id                  = (known after apply)
+      + ipv6_cidr_block                      = (known after apply)
+      + ipv6_cidr_block_network_border_group = (known after apply)
+      + main_route_table_id                  = (known after apply)
+      + owner_id                             = (known after apply)
+      + tags                                 = {
+          + "Name" = "AnjLab-VPC"
+        }
+      + tags_all                             = {
+          + "Name" = "AnjLab-VPC"
+        }
+    }
+
+Plan: 16 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + aws_alb_public_dns = (known after apply)
+aws_vpc.anjlab_vpc: Creating...
+aws_vpc.anjlab_vpc: Creation complete after 4s [id=vpc-065086e69896f5d3f]
+aws_subnet.anjlab_pubsubnet1: Creating...
+aws_internet_gateway.anjlab_igw: Creating...
+aws_lb_target_group.anjlab_web_alb_tg: Creating...
+aws_security_group.anjlab_nginx_sg: Creating...
+aws_subnet.anjlab_pubsubnet2: Creating...
+aws_security_group.anjlab_webalb_sg: Creating...
+aws_internet_gateway.anjlab_igw: Creation complete after 1s [id=igw-0f6f06c3117be08a9]
+aws_route_table.anjlab_rtb: Creating...
+aws_lb_target_group.anjlab_web_alb_tg: Creation complete after 3s [id=arn:aws:elasticloadbalancing:us-west-2:704943270120:targetgroup/anjlab-web-alb-tg/57ec1d2c9216a1a5]
+aws_route_table.anjlab_rtb: Creation complete after 2s [id=rtb-0cbbaa4596a0be6bc]
+aws_security_group.anjlab_nginx_sg: Creation complete after 4s [id=sg-066c8e90775c68f89]
+aws_security_group.anjlab_webalb_sg: Creation complete after 4s [id=sg-096d7c49bafc4bfe8]
+aws_subnet.anjlab_pubsubnet1: Still creating... [10s elapsed]
+aws_subnet.anjlab_pubsubnet2: Still creating... [10s elapsed]
+aws_subnet.anjlab_pubsubnet1: Creation complete after 11s [id=subnet-0148509753546cec6]
+aws_route_table_association.anjlab_pubsubnet1: Creating...
+aws_instance.anjlab_webvm1: Creating...
+aws_subnet.anjlab_pubsubnet2: Creation complete after 12s [id=subnet-047b81dd2ee23d3bc]
+aws_route_table_association.anjlab_pubsubnet2: Creating...
+aws_lb.anjlab_web_alb: Creating...
+aws_instance.anjlab_webvm2: Creating...
+aws_route_table_association.anjlab_pubsubnet1: Creation complete after 1s [id=rtbassoc-009d1e3d3706120f4]
+aws_route_table_association.anjlab_pubsubnet2: Creation complete after 0s [id=rtbassoc-0feb3fe5f34b53d85]
+aws_instance.anjlab_webvm1: Still creating... [10s elapsed]
+aws_lb.anjlab_web_alb: Still creating... [10s elapsed]
+aws_instance.anjlab_webvm2: Still creating... [10s elapsed]
+aws_instance.anjlab_webvm1: Still creating... [20s elapsed]
+aws_lb.anjlab_web_alb: Still creating... [20s elapsed]
+aws_instance.anjlab_webvm2: Still creating... [20s elapsed]
+aws_instance.anjlab_webvm1: Still creating... [30s elapsed]
+aws_lb.anjlab_web_alb: Still creating... [30s elapsed]
+aws_instance.anjlab_webvm2: Still creating... [30s elapsed]
+aws_instance.anjlab_webvm1: Creation complete after 34s [id=i-0647adc9c015171be]
+aws_lb_target_group_attachment.anjlab_web_tg_instance1: Creating...
+aws_instance.anjlab_webvm2: Creation complete after 34s [id=i-082724aa05eb2a9a9]
+aws_lb_target_group_attachment.anjlab_web_tg_instance1: Creation complete after 1s [id=arn:aws:elasticloadbalancing:us-west-2:704943270120:targetgroup/anjlab-web-alb-tg/57ec1d2c9216a1a5-20230318183301585700000003]
+aws_lb_target_group_attachment.anjlab_web_tg_instance2: Creating...
+aws_lb_target_group_attachment.anjlab_web_tg_instance2: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-west-2:704943270120:targetgroup/anjlab-web-alb-tg/57ec1d2c9216a1a5-20230318183301868300000004]
+aws_lb.anjlab_web_alb: Still creating... [40s elapsed]
+aws_lb.anjlab_web_alb: Still creating... [50s elapsed]
+aws_lb.anjlab_web_alb: Still creating... [1m0s elapsed]
+aws_lb.anjlab_web_alb: Still creating... [1m10s elapsed]
+aws_lb.anjlab_web_alb: Still creating... [1m20s elapsed]
+aws_lb.anjlab_web_alb: Still creating... [1m30s elapsed]
+aws_lb.anjlab_web_alb: Still creating... [1m40s elapsed]
+aws_lb.anjlab_web_alb: Still creating... [1m50s elapsed]
+aws_lb.anjlab_web_alb: Still creating... [2m0s elapsed]
+aws_lb.anjlab_web_alb: Creation complete after 2m4s [id=arn:aws:elasticloadbalancing:us-west-2:704943270120:loadbalancer/app/anjlab-web-alb/71c526365266e3a8]
+aws_lb_listener.anjlab_lb_listner: Creating...
+aws_lb_listener.anjlab_lb_listner: Creation complete after 1s [id=arn:aws:elasticloadbalancing:us-west-2:704943270120:listener/app/anjlab-web-alb/71c526365266e3a8/32e5717f9d4d5509]
+
+Apply complete! Resources: 16 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+aws_alb_public_dns = "anjlab-web-alb-1329533641.us-west-2.elb.amazonaws.com"
