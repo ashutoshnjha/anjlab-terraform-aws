@@ -6,10 +6,11 @@
   * v3_advanced := To be added soon. It is for experienced to apply suitable features of terrafrom on top of intermediate templates. 
 
 * Helpfull commands
-  * terraform -v
-  * terraform init
-  * terraform fmt
-  * terraform validate
+  * terraform -help
+  * terraform -v or terraform version
+  * terraform fmt  - it does style formation.
+  * terraform init - It prepares working directory for other commands execution
+  * terraform validate - It checks for configuration validation.
   * terraform plan
   * terraform apply -auto-approve
 
