@@ -8,11 +8,13 @@
 * Helpfull commands
   * terraform -help
   * terraform -v or terraform version
-  * terraform fmt   > It does style formation.
-  * terraform init  > It prepares working directory for other commands execution
-  * terraform validate > It checks for configuration validation.
-  * terraform plan  > It shows changes required by the current configuration
-  * terraform apply -auto-approve > Create or update infrastructure.
+  * terraform fmt                 -> It does style formation.
+  * terraform init                -> It prepares working directory for other commands execution.
+  * terraform validate            -> It checks for configuration validation.
+  * terraform plan                -> It shows changes required by the current configuration.
+  * terraform apply -auto-approve -> Create or update infrastructure.
+  * terraform destroy             -> It destroys previously-created infrastructure.
+  * terraform state               -> It is for state management with its sub commands
 
 * Ways to supply variables' values
   * TF_VAR environment variable
